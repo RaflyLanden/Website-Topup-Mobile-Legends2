@@ -14,7 +14,7 @@ const schema = z.object({
 }).strict();
 
 export async function GET() {
-  if (!requireAdmin()) return NextResponse.json({ error: "Akses ditolak." }, { status: 401 });
+  if (!await requireAdmin()) return NextResponse.json({ error: "Akses ditolak." }, { status: 401 });
   try {
     return NextResponse.json({ settings: await getRepository().listSettings() });
   } catch {
@@ -23,7 +23,7 @@ export async function GET() {
 }
 
 export async function PATCH(request: NextRequest) {
-  const admin = requireAdmin();
+  const admin = await requireAdmin();
   if (!admin) return NextResponse.json({ error: "Akses ditolak." }, { status: 401 });
   const parsed = schema.safeParse(await request.json().catch(() => null));
   if (!parsed.success || Object.keys(parsed.data).length === 0) {

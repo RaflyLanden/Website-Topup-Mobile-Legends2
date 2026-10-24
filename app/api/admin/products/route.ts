@@ -6,7 +6,7 @@ import type { Product } from "@/lib/domain/types";
 import { generateNumericId } from "@/lib/server/numeric-id";
 
 export async function GET() {
-  const admin = requireAdmin();
+  const admin = await requireAdmin();
   if (!admin) return NextResponse.json({ error: "Akses ditolak." }, { status: 401 });
   try {
     const repository = getRepository();
@@ -21,7 +21,7 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
-  const admin = requireAdmin();
+  const admin = await requireAdmin();
   if (!admin) return NextResponse.json({ error: "Akses ditolak." }, { status: 401 });
   const parsed = productCreateSchema.safeParse(await request.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: parsed.error.issues[0]?.message ?? "Data produk tidak valid." }, { status: 400 });

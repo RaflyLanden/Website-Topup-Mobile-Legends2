@@ -5,7 +5,7 @@ import { getRepository } from "@/lib/server/repository";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const session = requireAdmin();
+  const session = await requireAdmin();
   if (!session) return NextResponse.json({ error: "Akses ditolak." }, { status: 401 });
   try {
     const orders = await getRepository().listOrders();

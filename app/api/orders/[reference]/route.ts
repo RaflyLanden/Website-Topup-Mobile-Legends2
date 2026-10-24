@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
 import { getRepository } from "@/lib/server/repository";
 
-export async function GET(_request: Request, { params }: { params: { reference: string } }) {
-  const order = await getRepository().getOrderByReference(params.reference);
+export async function GET(_request: Request, { params }: { params: Promise<{ reference: string }> }) {
+  const { reference } = await params;
+  const order = await getRepository().getOrderByReference(reference);
   if (!order) return NextResponse.json({ error: "Pesanan tidak ditemukan." }, { status: 404 });
   return NextResponse.json({ order: {
     reference: order.public_order_reference,

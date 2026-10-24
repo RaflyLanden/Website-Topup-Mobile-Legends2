@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
   }
   if (!process.env.ADMIN_EMAIL || !process.env.ADMIN_PASSWORD || !process.env.ADMIN_AUTH_SECRET || process.env.ADMIN_AUTH_SECRET.length < 32) {
     return NextResponse.json({
-      error: "Konfigurasi admin belum lengkap. Isi ADMIN_EMAIL, ADMIN_PASSWORD, dan ADMIN_AUTH_SECRET minimal 32 karakter di .env.local, lalu restart server."
+      error: "Konfigurasi admin belum lengkap. Atur ADMIN_EMAIL, ADMIN_PASSWORD, dan ADMIN_AUTH_SECRET minimal 32 karakter di environment server."
     }, { status: 503 });
   }
   if (!verifyAdminCredentials(parsed.data.email, parsed.data.password)) {
