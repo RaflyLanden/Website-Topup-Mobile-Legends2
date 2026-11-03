@@ -1,4 +1,4 @@
-# TopupML2 — MLBB Top-Up Store
+# typostore — MLBB Top-Up Store
 
 Next.js App Router, TypeScript, and Tailwind storefront for Mobile Legends top-ups. Google Sheets is the initial server-only catalog/order store. The UI only shows configured catalog data; example prices are not presented as live products.
 

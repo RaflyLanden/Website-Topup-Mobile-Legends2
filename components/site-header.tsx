@@ -1,16 +1,15 @@
 import Link from "next/link";
-import { CircleHelp, Gamepad2, Search } from "lucide-react";
+import Image from "next/image";
+import { CircleHelp, Search } from "lucide-react";
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-[#2a3439] bg-[#0c1114]">
       <div className="section-shell flex min-h-[68px] items-center justify-between gap-4">
-        <Link href="/" className="flex shrink-0 items-center gap-2.5" aria-label="TopupML2 beranda">
-          <div className="flex h-9 w-9 items-center justify-center rounded-md bg-[#c9f36a] text-[#12180b]">
-            <Gamepad2 className="h-5 w-5" strokeWidth={2.5} />
-          </div>
+        <Link href="/" className="flex shrink-0 items-center gap-2.5" aria-label="typostore beranda">
+          <Image src="/logo-typostore.jpg" alt="" width={36} height={36} className="h-9 w-9 rounded-md object-cover" />
           <div>
-            <div className="text-base font-extrabold tracking-tight">TOPUP<span className="text-[#c9f36a]">ML2</span></div>
+            <div className="text-base font-extrabold tracking-tight">typostore</div>
             <div className="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#77827e]">Game commerce</div>
           </div>
         </Link>
@@ -36,10 +35,8 @@ export function Footer() {
       <div className="section-shell grid gap-8 py-9 sm:grid-cols-3">
         <div>
           <div className="mb-3 flex items-center gap-2.5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[#c9f36a] text-[#12180b]">
-              <Gamepad2 className="h-4 w-4" />
-            </div>
-            <div className="font-extrabold tracking-tight">TOPUP<span className="text-[#c9f36a]">ML2</span></div>
+            <Image src="/logo-typostore.jpg" alt="" width={32} height={32} className="h-8 w-8 rounded-md object-cover" />
+            <div className="font-extrabold tracking-tight">typostore</div>
           </div>
           <p className="max-w-xs text-sm text-[#a0aaa7]">Top up Mobile Legends dengan rincian biaya dan status pesanan yang jelas.</p>
         </div>
@@ -61,7 +58,7 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="section-shell border-t border-[#20292d] py-4 text-xs text-[#77827e]">© {new Date().getFullYear()} TopupML2. Bukan situs resmi Mobile Legends: Bang Bang.</div>
+      <div className="section-shell border-t border-[#20292d] py-4 text-xs text-[#77827e]">© {new Date().getFullYear()} typostore. Bukan situs resmi Mobile Legends: Bang Bang.</div>
     </footer>
   );
 }

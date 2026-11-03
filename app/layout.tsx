@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "TopupML2 | MLBB Top Up",
+  title: "typostore | MLBB Top Up",
   description: "Platform top up Mobile Legends dengan checkout aman dan admin dashboard.",
 };
 

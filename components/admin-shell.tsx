@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Boxes, LayoutDashboard, Package2, Settings, ShoppingCart, ShieldCheck, WalletCards } from "lucide-react";
+import Image from "next/image";
+import { Boxes, LayoutDashboard, Package2, Settings, ShoppingCart, WalletCards } from "lucide-react";
 import { AdminLogout } from "@/components/admin-logout";
 
 const links = [
@@ -16,11 +17,9 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
     <div className="flex min-h-screen bg-[#0c1114] text-[#f0f3ee]">
       <aside className="hidden w-60 shrink-0 border-r border-[#2a3439] bg-[#0a0e10] p-4 md:block">
         <div className="mb-8 flex items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-md bg-[#c9f36a] text-[#12180b]">
-            <ShieldCheck className="h-5 w-5" />
-          </div>
+          <Image src="/logo-typostore.jpg" alt="" width={36} height={36} className="h-9 w-9 rounded-md object-cover" />
           <div>
-            <div className="font-extrabold">TOPUP<span className="text-[#c9f36a]">ML2</span></div>
+            <div className="font-extrabold">typostore</div>
             <div className="text-xs text-[#77827e]">Operations</div>
           </div>
         </div>
